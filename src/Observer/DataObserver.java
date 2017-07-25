@@ -8,8 +8,26 @@
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
 
-package Observer.interfaces;
+package Observer;
 
-public interface Observers {
-    void updateOperation();
+import Observer.interfaces.Observers;
+
+/**
+ * THE UPDATE OPERATION IS CALLED BY
+ * THE OBSERVABLE AND THEN IN TURN ITS CALL THE
+ * GET DATA FROM OBSERVABLE TO GET NEW DATA AND
+ * PRINT IT
+ */
+public class DataObserver implements Observers {
+
+    private DataObservables mDataObservables;
+
+    DataObserver(DataObservables dataObservables) {
+        mDataObservables = dataObservables;
+    }
+
+    @Override
+    public void updateOperation() {
+        System.out.println(mDataObservables.getData());
+    }
 }

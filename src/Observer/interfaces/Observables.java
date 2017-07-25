@@ -11,4 +11,9 @@
 package Observer.interfaces;
 
 public interface Observables {
+    void registerObserver(Observers observers);
+
+    void removeObserver(Observers observers);
+
+    void updateObservers();
 }
