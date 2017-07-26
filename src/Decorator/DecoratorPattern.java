@@ -10,6 +10,11 @@
 
 package Decorator;
 
+import Decorator.decorators.CaptainDecorator;
+import Decorator.decorators.MonitorDecorator;
+import Decorator.decorators.PrefectDecorator;
+import Decorator.interfaces.StudentDetails;
+
 /**
  * DYNAMICALLY ATTACHING NEW BEHAVIOUR TO A OBJECT
  * IS THE CORE LOGIC OF DECORATOR PATTERN, I.E. AN
@@ -31,8 +36,49 @@ package Decorator;
  * VERTICAL SCROLLBAR OR BREWING A COFFEE AND ADDING
  * SUGAR OR SUGAR AT RUNTIME
  * <p>
- * HERE DECORATIONS ARE BEHAVIOURS
+ * HERE DECORATIONS ARE BEHAVIOURS.
+ * <p>
+ * EXAMPLE USED HERE :  A NEW STUDENT IS CREATED BY INSTANTIATING
+ * NEW STUDENT MAKER AND THEN THE STUDENT IS
+ * DECORATED/WRAPPED WITH NEW OBJECT THAT PROVIDE
+ * ADDITIONAL FUNCTIONALITY TO THE STUDENT OBJECT
+ * <p>
+ * THE EXAMPLE CHOSEN HERE IS NOT THAT GOOD AS ALL ADDITIONAL BEHAVIOUR
+ * COULD HAVE BEEN ADDEDD VIA PASSING A COLLECTION TO A STUDENT MAKER
+ * AND APPENDING THOSE TO THE STUDENT NAME, I WILL UPDATE THIS EXAMPLE
+ * ONCE I COME UP WITH SOMETHING MORE USEFUL AND SUITABLE FOR THIS PATTERN.
  */
 
 public class DecoratorPattern {
+
+    public static void main(String... args) {
+        DecoratorPattern pattern = new DecoratorPattern();
+        pattern.createStudents();
+    }
+
+    private void createStudents() {
+        StudentDetails studentDetails = new StudentMaker("Nikhil");
+        System.out.println(studentDetails.getStudentDetail());
+
+        System.out.println();
+
+        StudentDetails studentDetails1 = new MonitorDecorator(studentDetails);
+        System.out.println(studentDetails1.getStudentDetail());
+
+        System.out.println();
+
+        StudentDetails studentDetails2 = new PrefectDecorator(studentDetails);
+        System.out.println(studentDetails2.getStudentDetail());
+
+        System.out.println();
+
+        StudentDetails studentDetails3 = new CaptainDecorator(studentDetails);
+        System.out.println(studentDetails3.getStudentDetail());
+
+        System.out.println();
+
+        StudentDetails studentDetails4 = new CaptainDecorator(new PrefectDecorator(studentDetails));
+        System.out.println(studentDetails4.getStudentDetail());
+    }
+
 }

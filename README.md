@@ -4,7 +4,7 @@
 
  - Strategy Pattern
  - Observer Pattern
- - [ ] Decorator Pattern
+ - Decorator Pattern
  - [ ] Factory Method Pattern
  - [ ] Singleton Pattern
  - [ ] Command Pattern
