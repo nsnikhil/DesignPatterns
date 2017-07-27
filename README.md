@@ -5,8 +5,8 @@
  - Strategy Pattern
  - Observer Pattern
  - Decorator Pattern
- - [ ] Factory Method Pattern
- - [ ] Singleton Pattern
+ - Factory Method Pattern
+ - Singleton Pattern
  - [ ] Command Pattern
  
  ## License
